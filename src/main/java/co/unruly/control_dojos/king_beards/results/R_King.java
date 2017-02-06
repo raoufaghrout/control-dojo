@@ -12,6 +12,8 @@ public class R_King {
         this.beard = beard;
     }
 
+    public String getName() { return name; }
+
     public Result<R_Beard, String> getBeard() {
         return beard != null
                 ? Result.success(beard)

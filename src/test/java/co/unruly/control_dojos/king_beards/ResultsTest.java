@@ -24,7 +24,9 @@ public class ResultsTest {
 
     @Test
     public void King_Felipe_VI_Of_Spain() {
-        assumeTrue(Progress.hasStarted(Chapter.$06_WHAT_A_RESULT));
+        assumeTrue(
+            Progress.hasStarted(Chapter.$06_WHAT_A_RESULT) &&
+            !Progress.hasStarted(Chapter.$07_OK_EXPLAIN_YOURSELF));
 
         R_Country modernDaySpain = new R_Country("Spain", new R_King("Felipe VI", null));
 
@@ -33,7 +35,9 @@ public class ResultsTest {
 
     @Test
     public void France() {
-        assumeTrue(Progress.hasStarted(Chapter.$06_WHAT_A_RESULT));
+        assumeTrue(
+            Progress.hasStarted(Chapter.$06_WHAT_A_RESULT) &&
+            !Progress.hasStarted(Chapter.$07_OK_EXPLAIN_YOURSELF));
 
         R_Country modernDayFrance = new R_Country("France", null);
 

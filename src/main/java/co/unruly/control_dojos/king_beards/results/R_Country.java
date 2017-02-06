@@ -12,6 +12,8 @@ public class R_Country {
         this.name = name;
     }
 
+    public String getName() { return name; }
+
     public Result<R_King, String> getKing() {
         return king != null
                 ? Result.success(king)

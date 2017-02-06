@@ -10,6 +10,8 @@ public class N_King {
         this.beard = beard;
     }
 
+    public String getName() { return name; }
+
     public N_Beard getBeard() {
         return beard;
     }

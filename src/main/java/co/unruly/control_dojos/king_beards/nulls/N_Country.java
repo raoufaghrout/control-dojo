@@ -10,6 +10,8 @@ public class N_Country {
         this.king = king;
     }
 
+    public String getName() { return name; }
+
     public N_King getKing() {
         return king;
     }

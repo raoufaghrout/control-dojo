@@ -12,6 +12,8 @@ public class O_King {
         this.beard = beard;
     }
 
+    public String getName() { return name; }
+
     public Optional<O_Beard> getBeard() {
         return Optional.ofNullable(beard);
     }

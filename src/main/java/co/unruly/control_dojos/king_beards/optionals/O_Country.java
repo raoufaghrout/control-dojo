@@ -12,6 +12,8 @@ public class O_Country {
         this.king = king;
     }
 
+    public String getName() { return name; }
+
     public Optional<O_King> getKing() {
         return Optional.ofNullable(king);
     }
