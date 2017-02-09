@@ -8,7 +8,7 @@ import org.hamcrest.Matcher;
 public class ValidationMatchers {
 
     public static <T, E> Matcher<Result<T, FailedValidation<T, E>>> failure(E... errors) {
-        return new ValidationFailureMatcher<T, E>(LinkLists.of(errors));
+        return new ValidationFailureMatcher<>(LinkLists.of(errors));
     }
 
 
