@@ -1,11 +1,11 @@
 package co.unruly.control_dojos.rollercoasters;
 
 import co.unruly.control.Result.Result;
-import co.unruly.control.Result.Results;
 import co.unruly.control_dojos.Chapter;
 import co.unruly.control_dojos.Progress;
 import co.unruly.control_dojos.rollercoasters.domain.Person;
 import co.unruly.control_dojos.rollercoasters.domain.RidePhoto;
+import co.unruly.control_dojos.rollercoasters.domain.RidePhotographer;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,8 +17,8 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
-import static co.unruly.control.Result.Results.onFailure;
-import static co.unruly.control.Result.Results.successes;
+import static co.unruly.control.Result.Results.*;
+import static co.unruly.control.Validation.Validations.treatFailuresAsList;
 import static co.unruly.control_dojos.rollercoasters.test_support.FamousPeople.*;
 import static co.unruly.control_dojos.rollercoasters.test_support.ValidationMatchers.failure;
 import static co.unruly.control_dojos.rollercoasters.test_support.ValidationMatchers.success;
@@ -27,7 +27,6 @@ import static java.util.stream.Collectors.toList;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.core.IsCollectionContaining.hasItems;
-import static org.junit.Assume.assumeThat;
 import static org.junit.Assume.assumeTrue;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
@@ -52,7 +51,10 @@ public class MondoLooperTest {
 
     @Test
     public void rejectRidersUnder1m20Tall() {
-        assumeTrue(Progress.hasStarted(Chapter.$09_COMPOSE_YOURSELF_DEAR));
+        assumeTrue(
+            Progress.hasStarted(Chapter.$09_COMPOSE_YOURSELF_DEAR) &&
+           !Progress.hasStarted(Chapter.$10_SAY_MY_NAME_GUESS_MY_HEIGHT)
+        );
 
         assertThat(
             RollercoasterValidators.forMondoLooper().apply(new Person("Warwick Davis", 99)),
@@ -62,7 +64,10 @@ public class MondoLooperTest {
 
     @Test
     public void rejectRidersOver2m10Tall() {
-        assumeTrue(Progress.hasStarted(Chapter.$09_COMPOSE_YOURSELF_DEAR));
+        assumeTrue(
+            Progress.hasStarted(Chapter.$09_COMPOSE_YOURSELF_DEAR) &&
+                !Progress.hasStarted(Chapter.$10_SAY_MY_NAME_GUESS_MY_HEIGHT)
+        );
 
         assertThat(
             RollercoasterValidators.forMondoLooper().apply(new Person("Shaquille O'Neal", 224)),
@@ -77,16 +82,6 @@ public class MondoLooperTest {
         assertThat(
             RollercoasterValidators.forMondoLooper().apply(new Person("Donald Trump", 182)),
             is(failure("SEE YOU IN COURT, THE SECURITY OF OUR ROLLERCOASTER IS AT STAKE"))
-        );
-    }
-
-    @Test
-    public void rejectRidersWithoutATicket() {
-        assumeTrue(Progress.hasStarted(Chapter.$09_COMPOSE_YOURSELF_DEAR));
-
-        assertThat(
-            RollercoasterValidators.forMondoLooper().apply(new Person("Oliver Twist", 162)),
-            is(failure("You must be under 2m10 tall to ride"))
         );
     }
 
@@ -127,8 +122,8 @@ public class MondoLooperTest {
 
         assertThat(ridePhotos, hasItems(expectedPhotos));
 
-        verify(rejector).accept(singletonList("Frankenstein must be under 2m10 tall to ride"));
         verify(rejector).accept(singletonList("Chucky must be 1m20 tall to ride"));
+        verify(rejector).accept(singletonList("The Monster must be under 2m10 tall to ride"));
         verify(rejector).accept(singletonList("Dracula could not be photographed"));
     }
 
