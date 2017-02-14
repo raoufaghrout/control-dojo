@@ -16,7 +16,9 @@ public class ResultsTest {
 
     @Test
     public void King_Phillip_II_Of_Spain() {
-        assumeTrue(Progress.hasStarted(Chapter.$06_WHAT_A_RESULT));
+        assumeTrue(
+            Progress.hasStarted(Chapter.$06_WHAT_A_RESULT) &&
+            !Progress.hasStarted(Chapter.$08_YOU_MUST_BE_THIS_TALL_TO_RIDE));
 
         R_Country spainIn1580 = new R_Country("Spain", new R_King("Phillip II", new R_Beard("brown")));
 
