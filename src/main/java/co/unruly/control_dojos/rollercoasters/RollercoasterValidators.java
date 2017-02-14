@@ -15,10 +15,6 @@ public class RollercoasterValidators {
         throw new UnsupportedOperationException("Not implemented yet");
     }
 
-    public static Validator<Person, String> forLullabyLane() {
-        throw new UnsupportedOperationException("Not implemented yet");
-    }
-
     public static Validator<Group, String> forSplishySplashyCanyon() {
         throw new UnsupportedOperationException("Not implemented yet");
     }

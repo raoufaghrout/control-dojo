@@ -2,9 +2,7 @@ package co.unruly.control_dojos.rollercoasters.test_support;
 
 import co.unruly.control_dojos.rollercoasters.domain.Person;
 
-import static co.unruly.control_dojos.rollercoasters.domain.MedicalCondition.HAYFEVER;
-import static co.unruly.control_dojos.rollercoasters.domain.MedicalCondition.HYDROPHOBIA;
-import static co.unruly.control_dojos.rollercoasters.domain.MedicalCondition.NARCOLEPSY;
+import static co.unruly.control_dojos.rollercoasters.domain.MedicalCondition.*;
 
 public class FamousPeople {
 
@@ -33,4 +31,11 @@ public class FamousPeople {
     public static Person OZ = new Person("Oz", 140);
     public static Person ELPHABA = new Person("Elphaba", 185, HYDROPHOBIA);
     public static Person NESSA = new Person("Nessa", 172);
+
+    public static Person DRACULA = new Person("Dracula", 192, APHOTOGRAPHIA);
+    public static Person FRANKENSTEIN = new Person("The Monster", 223);
+    public static Person WOLFMAN = new Person("The Wolfman", 172);
+    public static Person CHUCKY = new Person("Chucky", 88);
+    public static Person FREDDIE_KRUEGER = new Person("Freddie Krueger", 188);
+    public static Person JASON_VOORHEES = new Person("Jason Voorhees", 188);
 }

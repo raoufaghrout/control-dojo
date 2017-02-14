@@ -16,7 +16,7 @@ public class SplishySplashyCanyonTest {
 
     @Test
     public void minimumGroupSizeIs3() {
-        assumeTrue(Progress.hasStarted(Chapter.$08_YOU_MUST_BE_THIS_TALL_TO_RIDE));
+        assumeTrue(Progress.hasStarted(Chapter.$13_A_BIT_OF_A_DAMP_SQUIB));
 
         assertThat(
             RollercoasterValidators.forSplishySplashyCanyon().apply(Group.of(JD, TURK)),
@@ -26,7 +26,10 @@ public class SplishySplashyCanyonTest {
 
     @Test
     public void maximumGroupSizeIs6() {
-        assumeTrue(Progress.hasStarted(Chapter.$08_YOU_MUST_BE_THIS_TALL_TO_RIDE));
+        assumeTrue(
+            Progress.hasStarted(Chapter.$13_A_BIT_OF_A_DAMP_SQUIB) &&
+            !Progress.hasStarted(Chapter.$14_THE_BIGGEST_BADDEST_DAMPEST_RIDE_OF_ALL_TIME)
+        );
 
         assertThat(
             RollercoasterValidators.forSplishySplashyCanyon().apply(Group.of(HAPPY, SLEEPY, SNEEZY, GRUMPY, BASHFUL, DOPEY, DOC)),
@@ -36,7 +39,7 @@ public class SplishySplashyCanyonTest {
 
     @Test
     public void acceptGroupsBetween3And6() {
-        assumeTrue(Progress.hasStarted(Chapter.$08_YOU_MUST_BE_THIS_TALL_TO_RIDE));
+        assumeTrue(Progress.hasStarted(Chapter.$13_A_BIT_OF_A_DAMP_SQUIB));
 
         assertThat(
             RollercoasterValidators.forSplishySplashyCanyon().apply(Group.of(CHANDLER, JOEY, ROSS, MONICA, RACHEL, PHOEBE)),
@@ -49,8 +52,26 @@ public class SplishySplashyCanyonTest {
         );
     }
 
+
     @Test
-    public void rejectHydrophobes() {
+    public void rejectGroupForBothSizeAndHeight() {
+        assumeTrue(Progress.hasStarted(Chapter.$14_THE_BIGGEST_BADDEST_DAMPEST_RIDE_OF_ALL_TIME));
+
+        assertThat(
+            RollercoasterValidators.forSplishySplashyCanyon().apply(Group.of(HAPPY, SLEEPY, SNEEZY, GRUMPY, BASHFUL, DOPEY, DOC)),
+            is(failure(
+                "Maximum group size is 6",
+                "Sleepy must be 1m20 tall to ride",
+                "Bashful must be 1m20 tall to ride",
+                "Dopey must be 1m20 tall to ride"
+            ))
+        );
+    }
+
+    @Test
+    public void rejectHydrophobesItsForTheirOwnGoodYknow() {
+        assumeTrue(Progress.hasStarted(Chapter.$14_THE_BIGGEST_BADDEST_DAMPEST_RIDE_OF_ALL_TIME));
+
         assertThat(
             RollercoasterValidators.forSplishySplashyCanyon().apply(Group.of(OZ, ELPHABA, NESSA)),
             is(failure("Elphaba must not risk getting wet"))

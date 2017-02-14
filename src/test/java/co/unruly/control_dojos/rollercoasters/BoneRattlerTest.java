@@ -36,10 +36,7 @@ public class BoneRattlerTest {
 
     @Test
     public void rejectsRidersUnder1m20TallInAMorePersonalWay() {
-        assumeTrue(
-            Progress.hasStarted(Chapter.$08_YOU_MUST_BE_THIS_TALL_TO_RIDE) &&
-            !Progress.hasStarted(Chapter.$10_SAY_MY_NAME_GUESS_MY_HEIGHT)
-         );
+        assumeTrue(Progress.hasStarted(Chapter.$10_SAY_MY_NAME_GUESS_MY_HEIGHT));
 
         assertThat(BONERATTLER_VALIDATOR.apply(DOPEY), is(failure("Dopey, you must be 1m20 tall to ride")));
         assertThat(BONERATTLER_VALIDATOR.apply(BASHFUL), is(failure("Bashful, you must be 1m20 tall to ride")));
