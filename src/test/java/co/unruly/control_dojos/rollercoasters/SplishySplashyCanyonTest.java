@@ -44,8 +44,16 @@ public class SplishySplashyCanyonTest {
         );
 
         assertThat(
-                RollercoasterValidators.forSplishySplashyCanyon().apply(Group.of(VIZZINI, INIGO_MONTOYA, FEZZEK)),
-                is(success())
+            RollercoasterValidators.forSplishySplashyCanyon().apply(Group.of(VIZZINI, INIGO_MONTOYA, FEZZEK)),
+            is(success())
+        );
+    }
+
+    @Test
+    public void rejectHydrophobes() {
+        assertThat(
+            RollercoasterValidators.forSplishySplashyCanyon().apply(Group.of(OZ, ELPHABA, NESSA)),
+            is(failure("Elphaba must not risk getting wet"))
         );
     }
 }

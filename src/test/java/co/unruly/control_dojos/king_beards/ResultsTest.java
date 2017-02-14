@@ -5,6 +5,7 @@ import co.unruly.control_dojos.Progress;
 import co.unruly.control_dojos.king_beards.results.R_Beard;
 import co.unruly.control_dojos.king_beards.results.R_Country;
 import co.unruly.control_dojos.king_beards.results.R_King;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -46,7 +47,9 @@ public class ResultsTest {
 
     @Test
     public void King_Felipe_VI_Of_Spain_With_Nice_Error_Messages() {
-        assumeTrue(Progress.hasStarted(Chapter.$07_OK_EXPLAIN_YOURSELF));
+        assumeTrue(
+            Progress.hasStarted(Chapter.$07_OK_EXPLAIN_YOURSELF) &&
+            !Progress.hasStarted(Chapter.$08_YOU_MUST_BE_THIS_TALL_TO_RIDE));
 
         R_Country modernDaySpain = new R_Country("Spain", new R_King("Felipe VI", null));
 
@@ -55,7 +58,9 @@ public class ResultsTest {
 
     @Test
     public void France_With_Nice_Error_Messages() {
-        assumeTrue(Progress.hasStarted(Chapter.$07_OK_EXPLAIN_YOURSELF));
+        assumeTrue(
+            Progress.hasStarted(Chapter.$07_OK_EXPLAIN_YOURSELF) &&
+            !Progress.hasStarted(Chapter.$08_YOU_MUST_BE_THIS_TALL_TO_RIDE));
 
         R_Country modernDayFrance = new R_Country("France", null);
 
