@@ -57,7 +57,7 @@ public class MondoLooperTest {
         );
 
         assertThat(
-            RollercoasterValidators.forMondoLooper().apply(new Person("Warwick Davis", 99)),
+            RollercoasterValidators.forMondoLooper().apply(new Person("Warwick Davis", 116)),
             is(failure("You must be 1m20 tall to ride"))
         );
     }

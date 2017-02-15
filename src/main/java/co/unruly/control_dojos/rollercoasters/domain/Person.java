@@ -7,15 +7,25 @@ import static java.util.stream.Collectors.toSet;
 
 public class Person {
 
-    public final String name;
-    public final int height;
-    public final Set<MedicalCondition> medicalConditions;
-    public final boolean hasTicket;
+    private final String name;
+    private final int height;
+    private final Set<MedicalCondition> medicalConditions;
 
     public Person(String name, int height, MedicalCondition... medicalConditions) {
         this.name = name;
         this.height = height;
         this.medicalConditions = Stream.of(medicalConditions).collect(toSet());
-        this.hasTicket = true;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public Set<MedicalCondition> getMedicalConditions() {
+        return medicalConditions;
     }
 }

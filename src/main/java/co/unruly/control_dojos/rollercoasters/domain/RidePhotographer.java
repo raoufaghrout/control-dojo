@@ -15,8 +15,8 @@ public class RidePhotographer {
     }
 
     public static Result<RidePhoto, List<String>> tryTakePhoto(Person person) {
-        if(person.medicalConditions.contains(MedicalCondition.APHOTOGRAPHIA)) {
-            return failure(singletonList(person.name + " could not be photographed"));
+        if(person.getMedicalConditions().contains(MedicalCondition.APHOTOGRAPHIA)) {
+            return failure(singletonList(person.getName() + " could not be photographed"));
         } else {
             return success(new RidePhoto(person));
         }
