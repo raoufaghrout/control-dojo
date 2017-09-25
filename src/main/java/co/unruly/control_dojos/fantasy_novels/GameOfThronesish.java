@@ -14,7 +14,7 @@ import static java.util.Arrays.asList;
 
 public class GameOfThronesish {
 
-    public static Result<Hero, Dead> SaveTheWorld(Result<FarmBoy, Dead> protagonist) {
+    public static Result<Hero, Dead> saveTheWorld(Result<FarmBoy, Dead> protagonist) {
         return null;
     }
 

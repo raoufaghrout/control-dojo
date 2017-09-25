@@ -13,7 +13,7 @@ import static co.unruly.control.result.Result.success;
 import static co.unruly.control_dojos.Chapter.$16_THE_HEROS_JOURNEY;
 import static co.unruly.control_dojos.Chapter.$19_END_OF_THE_ROAD;
 import static co.unruly.control_dojos.Progress.between;
-import static co.unruly.control_dojos.fantasy_novels.PulpFantasy.SaveTheWorld;
+import static co.unruly.control_dojos.fantasy_novels.PulpFantasy.saveTheWorld;
 import static org.junit.Assert.assertThat;
 
 public class PulpFantasyTest {
@@ -22,7 +22,7 @@ public class PulpFantasyTest {
     public void namedCharacterBecomesHeroAndSavesTheWorld() {
         between($16_THE_HEROS_JOURNEY, $19_END_OF_THE_ROAD);
 
-        Result<Hero, Dead> hero = SaveTheWorld(success(new FarmBoy("Luke")));
+        Result<Hero, Dead> hero = saveTheWorld(success(new FarmBoy("Luke")));
 
         assertThat(hero, isSuccessOf(new Hero("Luke")));
     }
@@ -31,7 +31,7 @@ public class PulpFantasyTest {
     public void cantDoAnythingAboutTerryWhoDiedInThePrologue() {
         between($16_THE_HEROS_JOURNEY, $19_END_OF_THE_ROAD);
 
-        Result<Hero, Dead> hero = SaveTheWorld(failure(new Dead("Terry")));
+        Result<Hero, Dead> hero = saveTheWorld(failure(new Dead("Terry")));
 
         assertThat(hero, isFailureOf(new Dead("Terry")));
     }

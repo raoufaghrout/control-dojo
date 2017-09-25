@@ -3,11 +3,9 @@ package co.unruly.control_dojos.fantasy_novels;
 import co.unruly.control.result.Result;
 import co.unruly.control_dojos.fantasy_novels.character.*;
 
-import static co.unruly.control.result.Transformers.onSuccess;
-
 public class PulpFantasy {
 
-    public static Result<Hero, Dead> SaveTheWorld(Result<FarmBoy, Dead> protagonist) {
+    public static Result<Hero, Dead> saveTheWorld(Result<FarmBoy, Dead> protagonist) {
         return null;
     }
 

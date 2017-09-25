@@ -13,7 +13,7 @@ import static co.unruly.control.result.Result.success;
 import static co.unruly.control_dojos.Chapter.$17_UNREMITTINGLY_GRIM_AND_HBO;
 import static co.unruly.control_dojos.Chapter.$19_END_OF_THE_ROAD;
 import static co.unruly.control_dojos.Progress.between;
-import static co.unruly.control_dojos.fantasy_novels.GameOfThronesish.SaveTheWorld;
+import static co.unruly.control_dojos.fantasy_novels.GameOfThronesish.saveTheWorld;
 import static org.junit.Assert.assertThat;
 
 public class GameOfThronesishTest {
@@ -22,7 +22,7 @@ public class GameOfThronesishTest {
     public void someoneWhoStartsOffDeadRemainsDead() {
         between($17_UNREMITTINGLY_GRIM_AND_HBO, $19_END_OF_THE_ROAD);
 
-        Result<Hero, Dead> hero = SaveTheWorld(failure(new Dead("The Nights King")));
+        Result<Hero, Dead> hero = saveTheWorld(failure(new Dead("The Nights King")));
 
         assertThat(hero, isFailureOf(new Dead("The Nights King")));
     }
@@ -31,7 +31,7 @@ public class GameOfThronesishTest {
     public void randomCharactersDontStandAChance() {
         between($17_UNREMITTINGLY_GRIM_AND_HBO, $19_END_OF_THE_ROAD);
 
-        Result<Hero, Dead> hero = SaveTheWorld(success(new FarmBoy("Donny")));
+        Result<Hero, Dead> hero = saveTheWorld(success(new FarmBoy("Donny")));
 
         assertThat(hero, isFailureOf(new Dead("Donny")));
     }
@@ -40,7 +40,7 @@ public class GameOfThronesishTest {
     public void seanBeanDiesBecauseOfTypecastingIGuess() {
         between($17_UNREMITTINGLY_GRIM_AND_HBO, $19_END_OF_THE_ROAD);
 
-        Result<Hero, Dead> hero = SaveTheWorld(success(new FarmBoy("Sean Bean")));
+        Result<Hero, Dead> hero = saveTheWorld(success(new FarmBoy("Sean Bean")));
 
         assertThat(hero, isFailureOf(new Dead("Sean Bean")));
     }
@@ -49,7 +49,7 @@ public class GameOfThronesishTest {
     public void aquamanDiesBecauseHeLivesInADesertAndDriesOut() {
         between($17_UNREMITTINGLY_GRIM_AND_HBO, $19_END_OF_THE_ROAD);
 
-        Result<Hero, Dead> hero = SaveTheWorld(success(new FarmBoy("Aquaman")));
+        Result<Hero, Dead> hero = saveTheWorld(success(new FarmBoy("Aquaman")));
 
         assertThat(hero, isFailureOf(new Dead("Aquaman")));
     }
@@ -58,7 +58,7 @@ public class GameOfThronesishTest {
     public void dracoMalfoyDiesBecauseUltimatelyItsAllWeReallyWanted() {
         between($17_UNREMITTINGLY_GRIM_AND_HBO, $19_END_OF_THE_ROAD);
 
-        Result<Hero, Dead> hero = SaveTheWorld(success(new FarmBoy("Draco Malfoy")));
+        Result<Hero, Dead> hero = saveTheWorld(success(new FarmBoy("Draco Malfoy")));
 
         assertThat(hero, isFailureOf(new Dead("Draco Malfoy")));
     }
@@ -67,7 +67,7 @@ public class GameOfThronesishTest {
     public void tomThumbIsNotAsCleverAsHeThinksHeIs() {
         between($17_UNREMITTINGLY_GRIM_AND_HBO, $19_END_OF_THE_ROAD);
 
-        Result<Hero, Dead> hero = SaveTheWorld(success(new FarmBoy("Tom Thumb")));
+        Result<Hero, Dead> hero = saveTheWorld(success(new FarmBoy("Tom Thumb")));
 
         assertThat(hero, isFailureOf(new Dead("Tom Thumb")));
     }
@@ -76,7 +76,7 @@ public class GameOfThronesishTest {
     public void ronSleetIsTheBestAtEverythingAndSavesTheWorld() {
         between($17_UNREMITTINGLY_GRIM_AND_HBO, $19_END_OF_THE_ROAD);
 
-        Result<Hero, Dead> hero = SaveTheWorld(success(new FarmBoy("Ron Sleet")));
+        Result<Hero, Dead> hero = saveTheWorld(success(new FarmBoy("Ron Sleet")));
 
         assertThat(hero, isSuccessOf(new Hero("Ron Sleet")));
     }
