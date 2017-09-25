@@ -1,7 +1,7 @@
 package co.unruly.control_dojos.rollercoasters;
 
-import co.unruly.control.Validation.Validator;
-import co.unruly.control.Validation.Validators;
+import co.unruly.control.validation.Validator;
+import co.unruly.control.validation.Validators;
 import co.unruly.control_dojos.rollercoasters.domain.Group;
 import co.unruly.control_dojos.rollercoasters.domain.Person;
 

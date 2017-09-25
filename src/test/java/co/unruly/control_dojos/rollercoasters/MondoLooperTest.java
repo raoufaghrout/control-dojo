@@ -1,11 +1,10 @@
 package co.unruly.control_dojos.rollercoasters;
 
-import co.unruly.control.Result.Result;
+import co.unruly.control.result.Result;
 import co.unruly.control_dojos.Chapter;
 import co.unruly.control_dojos.Progress;
 import co.unruly.control_dojos.rollercoasters.domain.Person;
 import co.unruly.control_dojos.rollercoasters.domain.RidePhoto;
-import co.unruly.control_dojos.rollercoasters.domain.RidePhotographer;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,8 +16,8 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
-import static co.unruly.control.Result.Results.*;
-import static co.unruly.control.Validation.Validations.treatFailuresAsList;
+import static co.unruly.control.result.Resolvers.successes;
+import static co.unruly.control.result.Transformers.onFailureDo;
 import static co.unruly.control_dojos.rollercoasters.test_support.FamousPeople.*;
 import static co.unruly.control_dojos.rollercoasters.test_support.ValidationMatchers.failure;
 import static co.unruly.control_dojos.rollercoasters.test_support.ValidationMatchers.success;
@@ -93,7 +92,7 @@ public class MondoLooperTest {
 
         List<RidePhoto> ridePhotos = Stream.of(HAPPY, SLEEPY, GRUMPY, SNEEZY, DOPEY, BASHFUL, DOC)
             .map(rideAndGetPhoto)
-            .peek(onFailure(rejector))
+            .peek(onFailureDo(rejector))
             .flatMap(successes())
             .collect(toList());
 
@@ -114,7 +113,7 @@ public class MondoLooperTest {
 
         List<RidePhoto> ridePhotos = Stream.of(DRACULA, FRANKENSTEIN, WOLFMAN, CHUCKY, FREDDIE_KRUEGER, JASON_VOORHEES)
             .map(rideAndGetPhoto)
-            .peek(onFailure(rejector))
+            .peek(onFailureDo(rejector))
             .flatMap(successes())
             .collect(toList());
 

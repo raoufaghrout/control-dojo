@@ -1,10 +1,10 @@
 package co.unruly.control_dojos.boyfriends;
 
-import co.unruly.control.Validation.Validator;
+import co.unruly.control.validation.Validator;
 
 import java.util.Optional;
 
-import static co.unruly.control.Validation.Validators.*;
+import static co.unruly.control.validation.Validators.*;
 import static co.unruly.control_dojos.boyfriends.Job.ESTATE_AGENT;
 import static co.unruly.control_dojos.boyfriends.Job.LAWYER;
 import static co.unruly.control_dojos.boyfriends.Vehicle.HARLEY_DAVIDSON;

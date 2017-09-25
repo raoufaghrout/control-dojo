@@ -1,16 +1,16 @@
 package co.unruly.control_dojos.rollercoasters.test_support;
 
-import co.unruly.control.LinkList.LinkList;
-import co.unruly.control.LinkList.LinkLists;
-import co.unruly.control.Result.Result;
-import co.unruly.control.Validation.FailedValidation;
+import co.unruly.control.result.Result;
+import co.unruly.control.validation.FailedValidation;
 import org.hamcrest.Description;
+
+import java.util.List;
 
 public class ValidationFailureMatcher<T, E> extends ValidationMatcher<T, E> {
 
-    private final LinkList<E> expectedErrors;
+    private final List<E> expectedErrors;
 
-    public ValidationFailureMatcher(LinkList<E> expectedErrors) {
+    public ValidationFailureMatcher(List<E> expectedErrors) {
         this.expectedErrors = expectedErrors;
     }
 
@@ -18,7 +18,7 @@ public class ValidationFailureMatcher<T, E> extends ValidationMatcher<T, E> {
     protected boolean verifyResult(Result<T, FailedValidation<T, E>> result) {
         return result.either(
                 success -> false,
-                failure -> LinkLists.listsEqual(failure.errors, expectedErrors)
+                failure -> failure.errors.equals(expectedErrors)
         );
     }
 

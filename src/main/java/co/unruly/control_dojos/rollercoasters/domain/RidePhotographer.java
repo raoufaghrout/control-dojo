@@ -1,11 +1,11 @@
 package co.unruly.control_dojos.rollercoasters.domain;
 
-import co.unruly.control.Result.Result;
+import co.unruly.control.result.Result;
 
 import java.util.List;
 
-import static co.unruly.control.Result.Result.failure;
-import static co.unruly.control.Result.Result.success;
+import static co.unruly.control.result.Result.failure;
+import static co.unruly.control.result.Result.success;
 import static java.util.Collections.singletonList;
 
 public class RidePhotographer {

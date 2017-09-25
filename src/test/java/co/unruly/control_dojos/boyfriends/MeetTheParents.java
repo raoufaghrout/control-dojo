@@ -1,6 +1,6 @@
 package co.unruly.control_dojos.boyfriends;
 
-import co.unruly.control.Validation.FailedValidation;
+import co.unruly.control.validation.FailedValidation;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,8 +12,8 @@ import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static co.unruly.control.Result.Results.onFailure;
-import static co.unruly.control.Result.Results.successes;
+import static co.unruly.control.result.Resolvers.successes;
+import static co.unruly.control.result.Transformers.onFailureDo;
 import static co.unruly.control_dojos.boyfriends.Boyfriends.*;
 import static co.unruly.control_dojos.boyfriends.Parents.DAD_VALIDATION;
 import static co.unruly.control_dojos.boyfriends.Parents.MOM_VALIDATION;
@@ -46,7 +46,7 @@ public class MeetTheParents {
     public void dadDoesntLikeAnyOfMyBoyfriends() {
         List<Boyfriend> guysMyDadLikes = Stream.of(DEAN, GARY, CHRISTOPHER)
             .map(DAD_VALIDATION)
-            .peek(onFailure(complain(boyfriendComplaintLogger)))
+            .peek(onFailureDo(complain(boyfriendComplaintLogger)))
             .flatMap(successes())
             .collect(Collectors.toList());
 

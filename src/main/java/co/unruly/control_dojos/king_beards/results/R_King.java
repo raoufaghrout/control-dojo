@@ -1,6 +1,6 @@
 package co.unruly.control_dojos.king_beards.results;
 
-import co.unruly.control.Result.Result;
+import co.unruly.control.result.Result;
 
 public class R_King {
 

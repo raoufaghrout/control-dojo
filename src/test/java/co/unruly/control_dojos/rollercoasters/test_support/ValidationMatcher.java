@@ -1,9 +1,7 @@
 package co.unruly.control_dojos.rollercoasters.test_support;
 
-import co.unruly.control.LinkList.LinkList;
-import co.unruly.control.LinkList.LinkLists;
-import co.unruly.control.Result.Result;
-import co.unruly.control.Validation.FailedValidation;
+import co.unruly.control.result.Result;
+import co.unruly.control.validation.FailedValidation;
 import org.hamcrest.Description;
 import org.hamcrest.TypeSafeDiagnosingMatcher;
 
