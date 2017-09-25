@@ -1,28 +1,20 @@
 package co.unruly.control_dojos.fantasy_novels;
 
-import co.unruly.control.pair.Pair;
-import co.unruly.control.result.Resolvers;
 import co.unruly.control.result.Result;
 import co.unruly.control_dojos.fantasy_novels.character.*;
 
-import java.util.List;
 import java.util.function.Function;
-import java.util.function.Supplier;
-import java.util.stream.Stream;
 
 import static co.unruly.control.result.Result.failure;
 import static co.unruly.control.result.Result.success;
 import static co.unruly.control.result.Transformers.attempt;
 import static co.unruly.control.result.Transformers.onSuccess;
+import static co.unruly.control.result.Transformers.recover;
 import static java.util.Arrays.asList;
 
-public class GameOfThronesish {
+public class GameOfThronesier {
 
     public static Result<Hero, Dead> saveTheWorld(Result<FarmBoy, Dead> protagonist) {
-        return null;
-    }
-
-    public static Pair<List<Hero>, List<Dead>> springtimeIsComing(String... characters) {
         return null;
     }
 
@@ -39,11 +31,19 @@ public class GameOfThronesish {
     }
 
     private static Result<Knight, Dead> crossTheThreshold(Apprentice chara) {
-        return growsIfNamed(chara, Knight::new, "Ron Sleet", "Tom Thumb");
+        return growsIfNamed(chara, Knight::new, "Tom Thumb");
     }
 
     private static Result<Hero, Dead> faceTheOrdeal(Knight chara) {
-        return growsIfNamed(chara, Hero::new, "Ron Sleet");
+        return failure(new Dead(chara.name()));
+    }
+
+    private static Result<Hero, Dead> deusExMachina(Dead chara) {
+        if("Ron Sleet".equals(chara.name())) {
+            return success(new Hero("Ron Sleet"));
+        } else {
+            return failure(chara);
+        }
     }
 
     private static <T> Result<T, Dead> growsIfNamed(Named n, Function<String, T> nextStage, String... names) {

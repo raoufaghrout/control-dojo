@@ -10,9 +10,7 @@ import static co.unruly.control.matchers.ResultMatchers.isFailureOf;
 import static co.unruly.control.matchers.ResultMatchers.isSuccessOf;
 import static co.unruly.control.result.Result.failure;
 import static co.unruly.control.result.Result.success;
-import static co.unruly.control_dojos.Chapter.$16_THE_HEROS_JOURNEY;
-import static co.unruly.control_dojos.Chapter.$19_PLODDING_AND_PREDICTABLE;
-import static co.unruly.control_dojos.Chapter.$21_END_OF_THE_ROAD;
+import static co.unruly.control_dojos.Chapter.*;
 import static co.unruly.control_dojos.Progress.between;
 import static co.unruly.control_dojos.fantasy_novels.PulpFantasy.saveTheWorld;
 import static org.hamcrest.core.Is.is;
@@ -22,7 +20,7 @@ public class PulpFantasyTest {
 
     @Test
     public void namedCharacterBecomesHeroAndSavesTheWorld() {
-        between($16_THE_HEROS_JOURNEY, $21_END_OF_THE_ROAD);
+        between($16_THE_HEROS_JOURNEY, $24_END_OF_THE_ROAD);
 
         Result<Hero, Dead> hero = saveTheWorld(success(new FarmBoy("Luke")));
 
@@ -31,7 +29,7 @@ public class PulpFantasyTest {
 
     @Test
     public void cantDoAnythingAboutTerryWhoDiedInThePrologue() {
-        between($16_THE_HEROS_JOURNEY, $21_END_OF_THE_ROAD);
+        between($16_THE_HEROS_JOURNEY, $24_END_OF_THE_ROAD);
 
         Result<Hero, Dead> hero = saveTheWorld(failure(new Dead("Terry")));
 
@@ -40,7 +38,7 @@ public class PulpFantasyTest {
 
     @Test
     public void letsNotPretendTheresAnyDramaHere() {
-        between($19_PLODDING_AND_PREDICTABLE, $21_END_OF_THE_ROAD);
+        between($19_PLODDING_AND_PREDICTABLE, $24_END_OF_THE_ROAD);
 
         Hero hero = saveTheWorld(new FarmBoy("Luke"));
 

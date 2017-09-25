@@ -10,18 +10,18 @@ import static co.unruly.control.matchers.ResultMatchers.isFailureOf;
 import static co.unruly.control.matchers.ResultMatchers.isSuccessOf;
 import static co.unruly.control.result.Result.failure;
 import static co.unruly.control.result.Result.success;
-import static co.unruly.control_dojos.Chapter.$18_A_TALE_OF_TWO_TOWERS;
-import static co.unruly.control_dojos.Chapter.$20_STARTING_AT_THE_VERY_BEGINNING;
-import static co.unruly.control_dojos.Chapter.$21_END_OF_THE_ROAD;
+import static co.unruly.control_dojos.Chapter.*;
 import static co.unruly.control_dojos.Progress.between;
 import static co.unruly.control_dojos.fantasy_novels.ActualLiterature.saveTheWorld;
+import static co.unruly.control_dojos.fantasy_novels.ActualLiterature.tellTheStoryOf;
+import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
 public class ActualLiteratureTest {
 
     @Test
     public void someoneWhoStartsOffDeadRemainsDead() {
-        between($18_A_TALE_OF_TWO_TOWERS, $21_END_OF_THE_ROAD);
+        between($18_A_TALE_OF_TWO_TOWERS, $24_END_OF_THE_ROAD);
 
         Result<Hero, Dead> hero = saveTheWorld(failure(new Dead("The Witch King of Hangman")));
 
@@ -30,7 +30,7 @@ public class ActualLiteratureTest {
 
     @Test
     public void randomCharactersDontStandAChance() {
-        between($18_A_TALE_OF_TWO_TOWERS, $21_END_OF_THE_ROAD);
+        between($18_A_TALE_OF_TWO_TOWERS, $24_END_OF_THE_ROAD);
 
         Result<Hero, Dead> hero = saveTheWorld(success(new FarmBoy("Donny")));
 
@@ -39,7 +39,7 @@ public class ActualLiteratureTest {
 
     @Test
     public void seanBeanDiesBecauseOfTypecastingIGuess() {
-        between($18_A_TALE_OF_TWO_TOWERS, $21_END_OF_THE_ROAD);
+        between($18_A_TALE_OF_TWO_TOWERS, $24_END_OF_THE_ROAD);
 
         Result<Hero, Dead> hero = saveTheWorld(success(new FarmBoy("Sean Bean")));
 
@@ -48,7 +48,7 @@ public class ActualLiteratureTest {
 
     @Test
     public void marillSillionDoesntMakeItThroughTheSpikyMountain() {
-        between($18_A_TALE_OF_TWO_TOWERS, $21_END_OF_THE_ROAD);
+        between($18_A_TALE_OF_TWO_TOWERS, $24_END_OF_THE_ROAD);
 
         Result<Hero, Dead> hero = saveTheWorld(success(new FarmBoy("Marillsillion")));
 
@@ -57,7 +57,7 @@ public class ActualLiteratureTest {
 
     @Test
     public void boboAcquiresHisPrecious() {
-        between($18_A_TALE_OF_TWO_TOWERS, $21_END_OF_THE_ROAD);
+        between($18_A_TALE_OF_TWO_TOWERS, $24_END_OF_THE_ROAD);
 
         Result<Hero, Dead> hero = saveTheWorld(success(new FarmBoy("Bobo")));
 
@@ -66,7 +66,7 @@ public class ActualLiteratureTest {
 
     @Test
     public void randomCharactersDontDieQuickly() {
-        between($20_STARTING_AT_THE_VERY_BEGINNING, $21_END_OF_THE_ROAD);
+        between($20_STARTING_AT_THE_VERY_BEGINNING, $24_END_OF_THE_ROAD);
 
         Result<Hero, Dead> hero = saveTheWorld(new FarmBoy("Donny"));
 
@@ -75,7 +75,7 @@ public class ActualLiteratureTest {
 
     @Test
     public void seanBeanDiesBecauseThatsWhatHisCvIsFullOf() {
-        between($20_STARTING_AT_THE_VERY_BEGINNING, $21_END_OF_THE_ROAD);
+        between($20_STARTING_AT_THE_VERY_BEGINNING, $24_END_OF_THE_ROAD);
 
         Result<Hero, Dead> hero = saveTheWorld(new FarmBoy("Sean Bean"));
 
@@ -84,7 +84,7 @@ public class ActualLiteratureTest {
 
     @Test
     public void marillSillionDoesntMakeItThroughTheFireSwamp() {
-        between($20_STARTING_AT_THE_VERY_BEGINNING, $21_END_OF_THE_ROAD);
+        between($20_STARTING_AT_THE_VERY_BEGINNING, $24_END_OF_THE_ROAD);
 
         Result<Hero, Dead> hero = saveTheWorld(new FarmBoy("Marillsillion"));
 
@@ -93,10 +93,24 @@ public class ActualLiteratureTest {
 
     @Test
     public void boboMakesItThereAndBackAgain() {
-        between($20_STARTING_AT_THE_VERY_BEGINNING, $21_END_OF_THE_ROAD);
+        between($20_STARTING_AT_THE_VERY_BEGINNING, $24_END_OF_THE_ROAD);
 
         Result<Hero, Dead> hero = saveTheWorld(new FarmBoy("Bobo"));
 
         assertThat(hero, isSuccessOf(new Hero("Bobo")));
+    }
+
+    @Test
+    public void aTaleAsOldAsTime() {
+        between($21_PUTTING_IT_ALL_TOGETHER, $24_END_OF_THE_ROAD);
+
+        assertThat(tellTheStoryOf(new FarmBoy("Sean Bean")), is("Sean Bean died. :("));
+    }
+
+    @Test
+    public void sixFilmsAndTwentyHoursLater() {
+        between($21_PUTTING_IT_ALL_TOGETHER, $24_END_OF_THE_ROAD);
+
+        assertThat(tellTheStoryOf(new FarmBoy("Bobo")), is("Bobo saved the world!"));
     }
 }

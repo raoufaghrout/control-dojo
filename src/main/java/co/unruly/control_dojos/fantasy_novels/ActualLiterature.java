@@ -19,6 +19,10 @@ public class ActualLiterature {
         return null;
     }
 
+    public static String tellTheStoryOf(FarmBoy protagonist) {
+        return null;
+    }
+
     private static Result<Squire, Dead> callToAdventure(FarmBoy chara) {
         return growsIfNamed(chara, Squire::new, "Bobo", "Marillsillion", "Sean Bean");
     }
