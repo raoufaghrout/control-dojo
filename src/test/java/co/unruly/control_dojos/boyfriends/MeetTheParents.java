@@ -16,6 +16,9 @@ import java.util.stream.Stream;
 
 import static co.unruly.control.result.Resolvers.successes;
 import static co.unruly.control.result.Transformers.onFailureDo;
+import static co.unruly.control_dojos.Chapter.$08_YOU_MUST_BE_THIS_TALL_TO_RIDE;
+import static co.unruly.control_dojos.Chapter.$16_THE_HEROS_JOURNEY;
+import static co.unruly.control_dojos.Progress.between;
 import static co.unruly.control_dojos.boyfriends.Boyfriends.*;
 import static co.unruly.control_dojos.boyfriends.Parents.DAD_VALIDATION;
 import static co.unruly.control_dojos.boyfriends.Parents.MOM_VALIDATION;
@@ -41,7 +44,7 @@ public class MeetTheParents {
 
     @Test
     public void mumDoesntUnderstandMeAtAll() {
-        assumeTrue(Progress.hasStarted(Chapter.$08_YOU_MUST_BE_THIS_TALL_TO_RIDE));
+        between($08_YOU_MUST_BE_THIS_TALL_TO_RIDE, $16_THE_HEROS_JOURNEY);
 
         assertThat(MOM_VALIDATION.apply(DEAN), is(failure("He doesn't even have a job!", "He rides a **motorbike**!!!")));
 
@@ -50,7 +53,7 @@ public class MeetTheParents {
 
     @Test
     public void dadDoesntLikeAnyOfMyBoyfriends() {
-        assumeTrue(Progress.hasStarted(Chapter.$08_YOU_MUST_BE_THIS_TALL_TO_RIDE));
+        between($08_YOU_MUST_BE_THIS_TALL_TO_RIDE, $16_THE_HEROS_JOURNEY);
 
         List<Boyfriend> guysMyDadLikes = Stream.of(DEAN, GARY, CHRISTOPHER)
             .map(DAD_VALIDATION)

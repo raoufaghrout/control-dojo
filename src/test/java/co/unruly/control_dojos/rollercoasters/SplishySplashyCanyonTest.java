@@ -5,6 +5,9 @@ import co.unruly.control_dojos.Progress;
 import co.unruly.control_dojos.rollercoasters.domain.Group;
 import org.junit.Test;
 
+import static co.unruly.control_dojos.Chapter.*;
+import static co.unruly.control_dojos.Chapter.$16_THE_HEROS_JOURNEY;
+import static co.unruly.control_dojos.Progress.between;
 import static co.unruly.control_dojos.rollercoasters.test_support.FamousPeople.*;
 import static co.unruly.control_dojos.rollercoasters.test_support.ValidationMatchers.failure;
 import static co.unruly.control_dojos.rollercoasters.test_support.ValidationMatchers.success;
@@ -16,7 +19,7 @@ public class SplishySplashyCanyonTest {
 
     @Test
     public void minimumGroupSizeIs3() {
-        assumeTrue(Progress.hasStarted(Chapter.$13_A_BIT_OF_A_DAMP_SQUIB));
+        between($13_A_BIT_OF_A_DAMP_SQUIB, $16_THE_HEROS_JOURNEY);
 
         assertThat(
             RollercoasterValidators.forSplishySplashyCanyon().apply(Group.of(JD, TURK)),
@@ -26,10 +29,7 @@ public class SplishySplashyCanyonTest {
 
     @Test
     public void maximumGroupSizeIs6() {
-        assumeTrue(
-            Progress.hasStarted(Chapter.$13_A_BIT_OF_A_DAMP_SQUIB) &&
-            !Progress.hasStarted(Chapter.$14_THE_BIGGEST_BADDEST_DAMPEST_RIDE_OF_ALL_TIME)
-        );
+        between($13_A_BIT_OF_A_DAMP_SQUIB, $14_THE_BIGGEST_BADDEST_DAMPEST_RIDE_OF_ALL_TIME);
 
         assertThat(
             RollercoasterValidators.forSplishySplashyCanyon().apply(Group.of(HAPPY, SLEEPY, SNEEZY, GRUMPY, BASHFUL, DOPEY, DOC)),
@@ -39,7 +39,7 @@ public class SplishySplashyCanyonTest {
 
     @Test
     public void acceptGroupsBetween3And6() {
-        assumeTrue(Progress.hasStarted(Chapter.$13_A_BIT_OF_A_DAMP_SQUIB));
+        between($13_A_BIT_OF_A_DAMP_SQUIB, $16_THE_HEROS_JOURNEY);
 
         assertThat(
             RollercoasterValidators.forSplishySplashyCanyon().apply(Group.of(CHANDLER, JOEY, ROSS, MONICA, RACHEL, PHOEBE)),
@@ -55,7 +55,7 @@ public class SplishySplashyCanyonTest {
 
     @Test
     public void rejectGroupForBothSizeAndHeight() {
-        assumeTrue(Progress.hasStarted(Chapter.$14_THE_BIGGEST_BADDEST_DAMPEST_RIDE_OF_ALL_TIME));
+        between($14_THE_BIGGEST_BADDEST_DAMPEST_RIDE_OF_ALL_TIME, $16_THE_HEROS_JOURNEY);
 
         assertThat(
             RollercoasterValidators.forSplishySplashyCanyon().apply(Group.of(HAPPY, SLEEPY, SNEEZY, GRUMPY, BASHFUL, DOPEY, DOC)),
@@ -70,7 +70,7 @@ public class SplishySplashyCanyonTest {
 
     @Test
     public void rejectHydrophobesItsForTheirOwnGoodYknow() {
-        assumeTrue(Progress.hasStarted(Chapter.$14_THE_BIGGEST_BADDEST_DAMPEST_RIDE_OF_ALL_TIME));
+        between($14_THE_BIGGEST_BADDEST_DAMPEST_RIDE_OF_ALL_TIME, $16_THE_HEROS_JOURNEY);
 
         assertThat(
             RollercoasterValidators.forSplishySplashyCanyon().apply(Group.of(OZ, ELPHABA, NESSA)),

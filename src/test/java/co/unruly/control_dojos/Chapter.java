@@ -22,7 +22,10 @@ public enum Chapter {
     $12_FANGS_FOR_THE_MEMORIES(12),
     $13_A_BIT_OF_A_DAMP_SQUIB(13),
     $14_THE_BIGGEST_BADDEST_DAMPEST_RIDE_OF_ALL_TIME(14),
-    $15_TRY_IT_FOR_YOURSELF(15);
+    $15_TRY_IT_FOR_YOURSELF(15),
+
+    // More results
+    $16_THE_HEROS_JOURNEY(16);
 
     public final int number;
 
