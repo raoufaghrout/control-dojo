@@ -3,7 +3,9 @@ package co.unruly.control_dojos.fantasy_novels;
 import co.unruly.control.result.Result;
 import co.unruly.control_dojos.fantasy_novels.character.*;
 
-public class HerosJourney {
+import static co.unruly.control.result.Transformers.onSuccess;
+
+public class PulpFantasy {
 
     public static Result<Hero, Dead> SaveTheWorld(Result<FarmBoy, Dead> protagonist) {
         return null;
@@ -13,7 +15,7 @@ public class HerosJourney {
         return new Squire(chara.name);
     }
 
-    private static Naysayer refuseOfTheCall(Squire chara) {
+    private static Naysayer refuseTheCall(Squire chara) {
         return new Naysayer(chara.name);
     }
 
@@ -25,7 +27,7 @@ public class HerosJourney {
         return new Knight(chara.name);
     }
 
-    private static Hero ordeal(Knight chara) {
+    private static Hero faceTheOrdeal(Knight chara) {
         return new Hero(chara.name);
     }
 }

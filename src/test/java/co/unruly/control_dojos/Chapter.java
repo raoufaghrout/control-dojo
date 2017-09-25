@@ -25,7 +25,9 @@ public enum Chapter {
     $15_TRY_IT_FOR_YOURSELF(15),
 
     // More results
-    $16_THE_HEROS_JOURNEY(16);
+    $16_THE_HEROS_JOURNEY(16),
+    $17_UNREMITTINGLY_GRIM_AND_HBO(17),
+    $18_END_OF_THE_TALE(18);
 
     public final int number;
 
