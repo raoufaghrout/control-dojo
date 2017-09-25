@@ -28,7 +28,9 @@ public enum Chapter {
     $16_THE_HEROS_JOURNEY(16),
     $17_UNREMITTINGLY_GRIM_AND_HBO(17),
     $18_A_TALE_OF_TWO_TOWERS(18),
-    $19_END_OF_THE_ROAD(19);
+    $19_PLODDING_AND_PREDICTABLE(19),
+    $20_STARTING_AT_THE_VERY_BEGINNING(20),
+    $21_END_OF_THE_ROAD(21);
 
     public final int number;
 

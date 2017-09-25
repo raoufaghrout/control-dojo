@@ -15,6 +15,10 @@ public class ActualLiterature {
         return null;
     }
 
+    public static Result<Hero, Dead> saveTheWorld(FarmBoy protagonist) {
+        return null;
+    }
+
     private static Result<Squire, Dead> callToAdventure(FarmBoy chara) {
         return growsIfNamed(chara, Squire::new, "Bobo", "Marillsillion", "Sean Bean");
     }

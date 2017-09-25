@@ -11,7 +11,7 @@ import static co.unruly.control.matchers.ResultMatchers.isSuccessOf;
 import static co.unruly.control.result.Result.failure;
 import static co.unruly.control.result.Result.success;
 import static co.unruly.control_dojos.Chapter.$17_UNREMITTINGLY_GRIM_AND_HBO;
-import static co.unruly.control_dojos.Chapter.$19_END_OF_THE_ROAD;
+import static co.unruly.control_dojos.Chapter.$21_END_OF_THE_ROAD;
 import static co.unruly.control_dojos.Progress.between;
 import static co.unruly.control_dojos.fantasy_novels.GameOfThronesish.saveTheWorld;
 import static org.junit.Assert.assertThat;
@@ -20,7 +20,7 @@ public class GameOfThronesishTest {
 
     @Test
     public void someoneWhoStartsOffDeadRemainsDead() {
-        between($17_UNREMITTINGLY_GRIM_AND_HBO, $19_END_OF_THE_ROAD);
+        between($17_UNREMITTINGLY_GRIM_AND_HBO, $21_END_OF_THE_ROAD);
 
         Result<Hero, Dead> hero = saveTheWorld(failure(new Dead("The Nights King")));
 
@@ -29,7 +29,7 @@ public class GameOfThronesishTest {
 
     @Test
     public void randomCharactersDontStandAChance() {
-        between($17_UNREMITTINGLY_GRIM_AND_HBO, $19_END_OF_THE_ROAD);
+        between($17_UNREMITTINGLY_GRIM_AND_HBO, $21_END_OF_THE_ROAD);
 
         Result<Hero, Dead> hero = saveTheWorld(success(new FarmBoy("Donny")));
 
@@ -38,7 +38,7 @@ public class GameOfThronesishTest {
 
     @Test
     public void seanBeanDiesBecauseOfTypecastingIGuess() {
-        between($17_UNREMITTINGLY_GRIM_AND_HBO, $19_END_OF_THE_ROAD);
+        between($17_UNREMITTINGLY_GRIM_AND_HBO, $21_END_OF_THE_ROAD);
 
         Result<Hero, Dead> hero = saveTheWorld(success(new FarmBoy("Sean Bean")));
 
@@ -47,7 +47,7 @@ public class GameOfThronesishTest {
 
     @Test
     public void aquamanDiesBecauseHeLivesInADesertAndDriesOut() {
-        between($17_UNREMITTINGLY_GRIM_AND_HBO, $19_END_OF_THE_ROAD);
+        between($17_UNREMITTINGLY_GRIM_AND_HBO, $21_END_OF_THE_ROAD);
 
         Result<Hero, Dead> hero = saveTheWorld(success(new FarmBoy("Aquaman")));
 
@@ -56,7 +56,7 @@ public class GameOfThronesishTest {
 
     @Test
     public void dracoMalfoyDiesBecauseUltimatelyItsAllWeReallyWanted() {
-        between($17_UNREMITTINGLY_GRIM_AND_HBO, $19_END_OF_THE_ROAD);
+        between($17_UNREMITTINGLY_GRIM_AND_HBO, $21_END_OF_THE_ROAD);
 
         Result<Hero, Dead> hero = saveTheWorld(success(new FarmBoy("Draco Malfoy")));
 
@@ -65,7 +65,7 @@ public class GameOfThronesishTest {
 
     @Test
     public void tomThumbIsNotAsCleverAsHeThinksHeIs() {
-        between($17_UNREMITTINGLY_GRIM_AND_HBO, $19_END_OF_THE_ROAD);
+        between($17_UNREMITTINGLY_GRIM_AND_HBO, $21_END_OF_THE_ROAD);
 
         Result<Hero, Dead> hero = saveTheWorld(success(new FarmBoy("Tom Thumb")));
 
@@ -74,7 +74,7 @@ public class GameOfThronesishTest {
 
     @Test
     public void ronSleetIsTheBestAtEverythingAndSavesTheWorld() {
-        between($17_UNREMITTINGLY_GRIM_AND_HBO, $19_END_OF_THE_ROAD);
+        between($17_UNREMITTINGLY_GRIM_AND_HBO, $21_END_OF_THE_ROAD);
 
         Result<Hero, Dead> hero = saveTheWorld(success(new FarmBoy("Ron Sleet")));
 

@@ -3,9 +3,16 @@ package co.unruly.control_dojos.fantasy_novels;
 import co.unruly.control.result.Result;
 import co.unruly.control_dojos.fantasy_novels.character.*;
 
+import static co.unruly.control.ApplicableWrapper.apply;
+import static co.unruly.control.ApplicableWrapper.startWith;
+
 public class PulpFantasy {
 
     public static Result<Hero, Dead> saveTheWorld(Result<FarmBoy, Dead> protagonist) {
+        return null;
+    }
+
+    public static Hero saveTheWorld(FarmBoy protagonist) {
         return null;
     }
 
