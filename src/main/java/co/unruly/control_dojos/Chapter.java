@@ -2,6 +2,9 @@ package co.unruly.control_dojos;
 
 public enum Chapter {
 
+    // Before we get started...
+    $00_INTRODUCTION(0),
+
     // Results
     $01_THE_KING_OF_SPAINS_BEARD(1),
     $02_THE_PROBLEM_WITH_BEARDS(2),

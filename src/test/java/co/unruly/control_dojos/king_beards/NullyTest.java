@@ -15,7 +15,9 @@ public class NullyTest {
 
     @Test
     public void King_Phillip_II_Of_Spain() {
-        assumeTrue(!Progress.hasStarted(Chapter.$08_YOU_MUST_BE_THIS_TALL_TO_RIDE));
+        assumeTrue(
+            Progress.hasStarted(Chapter.$01_THE_KING_OF_SPAINS_BEARD) &&
+            !Progress.hasStarted(Chapter.$08_YOU_MUST_BE_THIS_TALL_TO_RIDE));
 
         N_Country spainIn1580 = new N_Country("Spain", new N_King("Phillip II", new N_Beard("brown")));
 

@@ -1,6 +1,8 @@
 package co.unruly.control_dojos.boyfriends;
 
 import co.unruly.control.validation.FailedValidation;
+import co.unruly.control_dojos.Chapter;
+import co.unruly.control_dojos.Progress;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,6 +23,8 @@ import static co.unruly.control_dojos.rollercoasters.test_support.ValidationMatc
 import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assume.assumeThat;
+import static org.junit.Assume.assumeTrue;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 
@@ -37,6 +41,8 @@ public class MeetTheParents {
 
     @Test
     public void mumDoesntUnderstandMeAtAll() {
+        assumeTrue(Progress.hasStarted(Chapter.$08_YOU_MUST_BE_THIS_TALL_TO_RIDE));
+
         assertThat(MOM_VALIDATION.apply(DEAN), is(failure("He doesn't even have a job!", "He rides a **motorbike**!!!")));
 
         assertThat(MOM_VALIDATION.apply(CHRISTOPHER), is(failure("He's a bit old for you...")));
@@ -44,6 +50,8 @@ public class MeetTheParents {
 
     @Test
     public void dadDoesntLikeAnyOfMyBoyfriends() {
+        assumeTrue(Progress.hasStarted(Chapter.$08_YOU_MUST_BE_THIS_TALL_TO_RIDE));
+
         List<Boyfriend> guysMyDadLikes = Stream.of(DEAN, GARY, CHRISTOPHER)
             .map(DAD_VALIDATION)
             .peek(onFailureDo(complain(boyfriendComplaintLogger)))
