@@ -3,17 +3,10 @@ package co.unruly.control_dojos.fantasy_novels;
 import co.unruly.control.result.Result;
 import co.unruly.control_dojos.fantasy_novels.character.*;
 
-import static co.unruly.control.result.Transformers.onSuccess;
-
 public class HerosJourney {
 
     public static Result<Hero, Dead> SaveTheWorld(Result<FarmBoy, Dead> protagonist) {
-        return protagonist
-            .then(onSuccess(HerosJourney::callToAdventure))
-            .then(onSuccess(HerosJourney::refuseOfTheCall))
-            .then(onSuccess(HerosJourney::meetTheMentor))
-            .then(onSuccess(HerosJourney::crossTheThreshold))
-            .then(onSuccess(HerosJourney::ordeal));
+        return null;
     }
 
     private static Squire callToAdventure(FarmBoy chara) {
