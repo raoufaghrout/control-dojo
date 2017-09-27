@@ -19,7 +19,12 @@ public class PulpFantasy {
     }
 
     public static Hero saveTheWorld(FarmBoy protagonist) {
-        return null;
+        return startWith(protagonist)
+                .then(apply(PulpFantasy::callToAdventure))
+                .then(apply(PulpFantasy::refuseTheCall))
+                .then(apply(PulpFantasy::meetTheMentor))
+                .then(apply(PulpFantasy::crossTheThreshold))
+                .then(PulpFantasy::faceTheOrdeal);
     }
 
     private static Squire callToAdventure(FarmBoy chara) {

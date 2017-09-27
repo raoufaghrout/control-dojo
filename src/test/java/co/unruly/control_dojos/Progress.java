@@ -4,7 +4,7 @@ import static org.junit.Assume.assumeTrue;
 
 public class Progress {
 
-    private final static Chapter CURRENT_CHAPTER = Chapter.$18_A_TALE_OF_TWO_TOWERS;
+    private final static Chapter CURRENT_CHAPTER = Chapter.$19_PLODDING_AND_PREDICTABLE;
 
     public static boolean hasStarted(Chapter chapter) {
         return chapter.number <= CURRENT_CHAPTER.number;
