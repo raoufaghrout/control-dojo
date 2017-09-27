@@ -5,11 +5,17 @@ import co.unruly.control_dojos.fantasy_novels.character.*;
 
 import static co.unruly.control.ApplicableWrapper.apply;
 import static co.unruly.control.ApplicableWrapper.startWith;
+import static co.unruly.control.result.Transformers.onSuccess;
 
 public class PulpFantasy {
 
     public static Result<Hero, Dead> saveTheWorld(Result<FarmBoy, Dead> protagonist) {
-        return null;
+        return protagonist
+                .then(onSuccess(PulpFantasy::callToAdventure))
+                .then(onSuccess(PulpFantasy::refuseTheCall))
+                .then(onSuccess(PulpFantasy::meetTheMentor))
+                .then(onSuccess(PulpFantasy::crossTheThreshold))
+                .then(onSuccess(PulpFantasy::faceTheOrdeal));
     }
 
     public static Hero saveTheWorld(FarmBoy protagonist) {
