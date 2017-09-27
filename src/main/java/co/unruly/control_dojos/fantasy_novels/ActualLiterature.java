@@ -5,6 +5,7 @@ import co.unruly.control_dojos.fantasy_novels.character.*;
 
 import java.util.function.Function;
 
+import static co.unruly.control.ApplicableWrapper.startWith;
 import static co.unruly.control.result.Result.failure;
 import static co.unruly.control.result.Result.success;
 import static co.unruly.control.result.Transformers.attempt;
@@ -23,7 +24,12 @@ public class ActualLiterature {
     }
 
     public static Result<Hero, Dead> saveTheWorld(FarmBoy protagonist) {
-        return null;
+        return startWith(protagonist)
+                .then(ActualLiterature::callToAdventure)
+                .then(onSuccess(ActualLiterature::refuseTheCall))
+                .then(onSuccess(ActualLiterature::meetTheMentor))
+                .then(attempt(ActualLiterature::crossTheThreshold))
+                .then(attempt(ActualLiterature::faceTheOrdeal));
     }
 
     public static String tellTheStoryOf(FarmBoy protagonist) {
