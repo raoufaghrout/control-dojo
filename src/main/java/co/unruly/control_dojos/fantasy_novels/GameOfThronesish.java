@@ -19,7 +19,12 @@ import static java.util.Arrays.asList;
 public class GameOfThronesish {
 
     public static Result<Hero, Dead> saveTheWorld(Result<FarmBoy, Dead> protagonist) {
-        return null;
+        return protagonist
+                .then(attempt(GameOfThronesish::callToAdventure))
+                .then(attempt(GameOfThronesish::refuseTheCall))
+                .then(attempt(GameOfThronesish::meetTheMentor))
+                .then(attempt(GameOfThronesish::crossTheThreshold))
+                .then(attempt(GameOfThronesish::faceTheOrdeal));
     }
 
     public static Pair<List<Hero>, List<Dead>> springtimeIsComing(String... characters) {
