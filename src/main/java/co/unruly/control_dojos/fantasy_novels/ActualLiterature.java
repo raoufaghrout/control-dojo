@@ -7,12 +7,19 @@ import java.util.function.Function;
 
 import static co.unruly.control.result.Result.failure;
 import static co.unruly.control.result.Result.success;
+import static co.unruly.control.result.Transformers.attempt;
+import static co.unruly.control.result.Transformers.onSuccess;
 import static java.util.Arrays.asList;
 
 public class ActualLiterature {
 
     public static Result<Hero, Dead> saveTheWorld(Result<FarmBoy, Dead> protagonist) {
-        return null;
+        return protagonist
+                .then(attempt(ActualLiterature::callToAdventure))
+                .then(onSuccess(ActualLiterature::refuseTheCall))
+                .then(onSuccess(ActualLiterature::meetTheMentor))
+                .then(attempt(ActualLiterature::crossTheThreshold))
+                .then(attempt(ActualLiterature::faceTheOrdeal));
     }
 
     public static Result<Hero, Dead> saveTheWorld(FarmBoy protagonist) {
